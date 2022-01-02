@@ -1,0 +1,45 @@
+export default {
+  items: [
+    {
+      vendorCode: '1',
+      name: 'name',
+      count: 1,
+      price: 100,
+      manufacturer: 'USA',
+      additionalFields: [],
+    },
+    {
+      vendorCode: '2',
+      name: 'name',
+      count: 1,
+      price: 100,
+      manufacturer: 'USA',
+      additionalFields: [],
+    },
+    {
+      vendorCode: '3',
+      name: 'name',
+      count: 1,
+      price: 100,
+      manufacturer: 'USA',
+      additionalFields: [],
+    },
+    {
+      vendorCode: '4',
+      name: 'name',
+      count: 1,
+      price: 100,
+      manufacturer: 'USA',
+      additionalFields: [],
+    },
+    {
+      vendorCode: '5',
+      name: 'name',
+      count: 1,
+      price: 100,
+      manufacturer: 'USA',
+      additionalFields: [],
+    },
+  ],
+  selectedItem: null,
+};
