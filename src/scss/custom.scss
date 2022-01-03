@@ -1,5 +1,215 @@
 @import "_mixins.scss";
 
+/*modify tags*/
+a{
+  text-decoration: none;
+
+  &:visited,  &:link{
+    color: $black;
+  }
+
+  &:hover{
+    color: $light-blue;
+  }
+}
+
+hr{
+  margin: 0;
+}
+
+/*modifiers*/
+.uppercase{
+  text-transform: uppercase!important;
+}
+
+.white{
+  color: $white!important;
+}
+
+.black{
+  color: $black!important;
+}
+
+.blue{
+  color: $blue!important;
+}
+
+.hover-light-blue:hover{
+  color: $light-blue!important;
+}
+
+.flex{
+  display: flex!important;
+}
+
+.flex-column{
+  flex-direction: column!important;
+}
+
+.justify-center{
+  justify-content: center!important;
+}
+
+.justify-around{
+  justify-content: space-around!important;
+}
+
+.justify-between{
+  justify-content: space-between!important;
+}
+
+.justify-start{
+  justify-content: flex-start!important;
+}
+
+.align-center{
+  align-items: center!important;
+}
+
+.align-start{
+  align-items: flex-start!important;
+}
+
+.flex-wrap{
+  flex-wrap: wrap!important;
+}
+
+.m-b0{
+  margin-bottom: 0!important;
+}
+
+.m-b1{
+  margin-bottom: 1em!important;
+}
+
+.m-b-half{
+  margin-bottom: 0.5em!important;
+}
+
+.m-t0{
+  margin-top: 0!important;
+}
+
+.m-t1{
+  margin-top: 1em!important;
+}
+
+.m-t-half{
+  margin-top: 0.5em!important;
+}
+
+.m-r0{
+  margin-right: 0!important;
+}
+
+.m-r1{
+  margin-right: 1em!important;
+}
+
+.m-r-half{
+  margin-right: 0.5em!important;
+}
+
+.m-l0{
+  margin-left: 0!important;
+}
+
+.m-l1{
+  margin-left: 1em!important;
+}
+
+.m-l-half{
+  margin-left: 0.5em!important;
+}
+
+.p-b0{
+  padding-bottom: 0!important;
+}
+
+.p-b-half{
+  padding-bottom: 0.5em!important;
+}
+
+.p-t0{
+  padding-top: 0!important;
+}
+
+.p-t-half{
+  padding-top: 0.5em!important;
+}
+
+.p-r0{
+  padding-right: 0!important;
+}
+
+.p-r-half{
+  padding-right: 0.5em!important;
+}
+
+.p-l0{
+  padding-left: 0!important;
+}
+
+.p-l-half{
+  padding-left: 0.5em!important;
+}
+
+.opacity-50{
+  opacity: 50%!important;
+}
+
+.font-larger{
+  font-size: larger!important;
+}
+
+.font-smaller{
+  font-size: smaller!important;
+}
+
+/*other*/
+.button{
+  cursor: pointer;
+  border-radius: 5px;
+  padding: .5em 1em;
+  display: block;
+  position: relative;
+
+  &::before{
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  &:hover::before{
+    background: rgba(0, 0, 0, 0.01);
+  }
+}
+
+.button_primary{
+  color: $light-blue;
+  background: $white;
+
+  &::before{
+    background: rgba(0, 0, 0, 0.05);
+  }
+}
+
+.button_error{
+  color: $red;
+  background: $white;
+
+  &::before{
+    background: rgba(0, 0, 0, 0.05);
+  }
+}
+
 .container{
   margin: 0 1em;
   padding: 1em;

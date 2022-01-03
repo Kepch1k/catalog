@@ -6,6 +6,25 @@
   </div>
 </template>
 
+<script>
+import { mapMutations } from 'vuex';
+
+export default {
+  name: 'App',
+  methods: {
+    ...mapMutations({
+      updateBreakpoint: 'updateBreakpoint',
+    }),
+  },
+  created() {
+    window.addEventListener('resize', this.updateBreakpoint);
+  },
+  destroyed() {
+    window.removeEventListener('resize', this.updateBreakpoint);
+  },
+};
+</script>
+
 <style scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

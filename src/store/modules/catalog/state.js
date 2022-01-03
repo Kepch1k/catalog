@@ -11,7 +11,7 @@ export default {
     {
       vendorCode: '2',
       name: 'name',
-      count: 1,
+      count: 2,
       price: 100,
       manufacturer: 'USA',
       additionalFields: [],
@@ -19,7 +19,7 @@ export default {
     {
       vendorCode: '3',
       name: 'name',
-      count: 1,
+      count: 3,
       price: 100,
       manufacturer: 'USA',
       additionalFields: [],
@@ -27,13 +27,21 @@ export default {
     {
       vendorCode: '4',
       name: 'name',
-      count: 1,
+      count: 0,
       price: 100,
       manufacturer: 'USA',
       additionalFields: [],
     },
     {
       vendorCode: '5',
+      name: 'name',
+      count: 1,
+      price: 100,
+      manufacturer: 'USA',
+      additionalFields: [],
+    },
+    {
+      vendorCode: '5268548552572',
       name: 'name',
       count: 1,
       price: 100,
