@@ -1,6 +1,5 @@
 export default function () {
   const windowWidth = window.innerWidth;
-
   let breakpoint = null;
 
   if (windowWidth < 480) {

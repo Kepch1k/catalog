@@ -1,5 +1,7 @@
 import Vue from 'vue';
 import Icon from 'vue-awesome/components/Icon';
+import Paginate from 'vuejs-paginate';
+import VModal from 'vue-js-modal';
 import App from './App.vue';
 import router from './router';
 import store from './store';
@@ -12,7 +14,14 @@ import '@/css/normalize.css';
 import 'vue-awesome/icons';
 /* styles block end */
 
-/* register icon component */
+/* register plugins */
+Vue.use(VModal, {
+  dynamic: true,
+  dynamicDefault: { adaptive: true },
+});
+
+/* manual register components */
+Vue.component('paginate', Paginate);
 Vue.component('v-icon', Icon);
 
 /* register global components */

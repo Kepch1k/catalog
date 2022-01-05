@@ -3,7 +3,7 @@
     <div class="item">
       <router-link
         class="svg-wrapper"
-        :to="`/${itemData['vendorCode']}`"
+        :to="`/product/${itemData['id']}`"
       >
         <div class="item__header font-larger">
           {{ itemData['name'] }} #{{ itemData['vendorCode'] }}
@@ -28,13 +28,16 @@
         <div class="content__right-side flex">
           <router-link
             class="svg-wrapper"
-            :to="`/${itemData['vendorCode']}`"
+            :to="`/product/${itemData['id']}`"
           >
             <div class="button button_primary m-r-half">
               Show
             </div>
           </router-link>
-          <div class="button button_error m-l-half">
+          <div
+            class="button button_error m-l-half"
+            @click.stop="callDialog()"
+          >
             Remove
           </div>
         </div>
@@ -44,11 +47,38 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
+import DialogModal from './DialogModal.vue';
+
 export default {
   props: {
     itemData: Object,
   },
   name: 'CatalogItem',
+  methods: {
+    ...mapMutations({
+      deleteCatalogItem: 'catalog/deleteItem',
+    }),
+    callDialog() {
+      this.$modal.show(DialogModal, {
+        message: `That you want delete "
+        ${this.itemData.name.slice(0, 40)}
+        ${this.itemData.name.length > 40 ? '...' : ''}"?`,
+        closeDialog: this.closeDialog,
+        success: this.deleteItem,
+      }, {
+        width: '200px',
+        height: '200px',
+        name: this.itemData.id.toString(),
+      });
+    },
+    closeDialog() {
+      this.$modal.hide(this.itemData.id.toString());
+    },
+    deleteItem() {
+      this.deleteCatalogItem(this.itemData.id);
+    },
+  },
 };
 </script>
 

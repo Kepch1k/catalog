@@ -3,8 +3,13 @@
 @mixin for-phone-only {
   @media (max-width: #{$mediaPhoneWidth - 1px}) { @content; }
 }
-@mixin for-tablet-portrait-up {
+
+@mixin for-small-tablet-only {
   @media (min-width: $mediaPhoneWidth) { @content; }
+}
+
+@mixin for-tablet-portrait-up {
+  @media (min-width: $mediaSmallTabletWidth) { @content; }
 }
 @mixin for-tablet-landscape-up {
   @media (min-width: $mediaTabletWidth) { @content; }

@@ -2,6 +2,7 @@
   <div id="app">
     <site-header/>
     <router-view/>
+    <modals-container/>
     <site-footer/>
   </div>
 </template>
@@ -18,6 +19,7 @@ export default {
   },
   created() {
     window.addEventListener('resize', this.updateBreakpoint);
+    this.updateBreakpoint();
   },
   destroyed() {
     window.removeEventListener('resize', this.updateBreakpoint);

@@ -70,6 +70,10 @@ hr{
   align-items: flex-start!important;
 }
 
+.align-end{
+  align-items: flex-end!important;
+}
+
 .flex-wrap{
   flex-wrap: wrap!important;
 }
@@ -168,6 +172,7 @@ hr{
 
 /*other*/
 .button{
+  width: fit-content;
   cursor: pointer;
   border-radius: 5px;
   padding: .5em 1em;
@@ -210,6 +215,15 @@ hr{
   }
 }
 
+.button_success{
+  color: $green;
+  background: $white;
+
+  &::before{
+    background: rgba(0, 0, 0, 0.05);
+  }
+}
+
 .container{
   margin: 0 1em;
   padding: 1em;
@@ -223,4 +237,19 @@ hr{
   width: 0;
   height: 0;
   opacity: 0;
+}
+
+.pagination {
+  display: inline-block;
+  padding-left: 0;
+  margin: 20px 0;
+  border-radius: 4px;
+
+  & > li{
+    display: inline;
+  }
+}
+
+.page-item {
+  display: inline;
 }
