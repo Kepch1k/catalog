@@ -18,6 +18,10 @@ hr{
 }
 
 /*modifiers*/
+.b-r-half{
+  border-radius: 0.5em;
+}
+
 .uppercase{
   text-transform: uppercase!important;
 }
@@ -35,7 +39,7 @@ hr{
 }
 
 .hover-light-blue:hover{
-  color: $light-blue!important;
+  color: rgba($light-blue, 0.05)!important;
 }
 
 .flex{
@@ -193,7 +197,7 @@ hr{
   }
 
   &:hover::before{
-    background: rgba(0, 0, 0, 0.01);
+    background: rgba($gray, 0.1);
   }
 }
 

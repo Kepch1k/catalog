@@ -14,7 +14,8 @@
           {'text': 'Tile', 'value': 'tile'},
           {'text': 'List', 'value': 'list'},
         ]"
-          :selected.sync="selected"
+          :selected="selected"
+          @change="updateViewType"
         />
       </div>
       <div
@@ -22,6 +23,7 @@
         :class="{
           'm-t1' : this.breakpoint === 'xs'
         }"
+        @click="callModal()"
       >
         Create Item
       </div>
@@ -32,12 +34,12 @@
 <script>
 import { mapGetters, mapMutations } from 'vuex';
 import SET_VIEW_TYPE from '../store/types';
+import CreateModal from '@/components/CreateModal.vue';
 
 export default {
   name: 'ManagePanel',
   data() {
     return {
-      selected: this.viewType,
     };
   },
   computed: {
@@ -45,11 +47,29 @@ export default {
       viewType: 'viewType',
       breakpoint: 'breakpoint',
     }),
+    selected() {
+      return this.viewType;
+    },
   },
   methods: {
     ...mapMutations({
       updateViewType: SET_VIEW_TYPE,
     }),
+    callModal() {
+      this.$modal.show(CreateModal, {
+        message: `That you want delete
+        ""?`,
+        closeDialog: this.closeModal,
+        success: this.deleteItem,
+      }, {
+        width: '600px',
+        height: '350px',
+        name: 'create-modal',
+      });
+    },
+    closeModal() {
+      this.$modal.hide('create-modal');
+    },
   },
   watch: {
     selected(v) {

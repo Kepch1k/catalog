@@ -2,8 +2,8 @@
   <div class="radio-wrapper flex">
     <div class="form_radio_btn" v-for="(item, index) in items" :key="item['value']">
       <input
-        v-model="selected"
-        @change="$emit('update:selected', selected);"
+        v-model="toggleSelected"
+        @change="$emit('change', toggleSelected);"
         :id="`radio-${index}`"
         type="radio"
         name="radio"
@@ -18,11 +18,12 @@
 export default {
   props: {
     items: Array,
+    selected: String,
   },
   name: 'Toggle',
   data() {
     return {
-      selected: this.items[0].value,
+      toggleSelected: this.selected,
     };
   },
 };

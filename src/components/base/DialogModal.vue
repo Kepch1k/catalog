@@ -32,5 +32,6 @@ export default {
 .wrapper{
   padding: 0;
   height: inherit;
+  border: 1px solid transparent;
 }
 </style>

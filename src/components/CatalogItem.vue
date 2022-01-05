@@ -36,7 +36,7 @@
           </router-link>
           <div
             class="button button_error m-l-half"
-            @click.stop="callDialog()"
+            @click="callDialog()"
           >
             Remove
           </div>
@@ -48,7 +48,7 @@
 
 <script>
 import { mapMutations } from 'vuex';
-import DialogModal from './DialogModal.vue';
+import DialogModal from './base/DialogModal.vue';
 
 export default {
   props: {
@@ -61,9 +61,8 @@ export default {
     }),
     callDialog() {
       this.$modal.show(DialogModal, {
-        message: `That you want delete "
-        ${this.itemData.name.slice(0, 40)}
-        ${this.itemData.name.length > 40 ? '...' : ''}"?`,
+        message: `That you want delete
+        "${this.itemData.name.slice(0, 40)}${this.itemData.name.length > 40 ? '...' : ''}"?`,
         closeDialog: this.closeDialog,
         success: this.deleteItem,
       }, {
@@ -89,8 +88,8 @@ export default {
     margin: 5px;
 
     &:hover{
-      transform: scale(1.02);
-      background: rgba($light-gray, 0.05);
+      //transform: scale(1.02);
+      background: rgba($light-gray, 0.1);
     }
   }
 
