@@ -18,7 +18,7 @@
           >
             <custom-switcher :status="!state.isEdited">
               <div slot="option1">
-                {{ originalModel.name }}
+                {{ originalItem.name }}
               </div>
               <div class="form__group field" slot="option2">
                 <label :for="`item-name`" class="form__label">Name</label>
@@ -33,7 +33,7 @@
             </custom-switcher>
             <custom-switcher :status="!state.isEdited">
               <div slot="option1" class="black float-right m-l-half">
-                #{{ originalModel.vendorCode }}
+                #{{ originalItem.vendorCode }}
               </div>
               <div class="form__group field" slot="option2">
                 <label :for="`item-name-vendor-code`" class="form__label">Vendor Code</label>
@@ -61,7 +61,7 @@
                 </div>
                 <custom-switcher :status="!state.isEdited">
                   <div slot="option1">
-                    {{ originalModel.manufacturer }}
+                    {{ originalItem.manufacturer }}
                   </div>
                   <div class="form__group field" slot="option2">
                     <label :for="`item-manufacturer`" class="form__label">Manufacturer</label>
@@ -81,7 +81,7 @@
                 </div>
                 <custom-switcher :status="!state.isEdited">
                   <div slot="option1">
-                    {{ originalModel.count }}
+                    {{ originalItem.count }}
                   </div>
                   <div class="form__group field" slot="option2">
                     <label :for="`item-count`" class="form__label">Count</label>
@@ -102,7 +102,7 @@
                 </div>
                 <custom-switcher :status="!state.isEdited">
                   <div slot="option1">
-                    {{ originalModel.price }}$
+                    {{ originalItem.price }}$
                   </div>
                   <div class="form__group field" slot="option2">
                     <label :for="`item-price`" class="form__label">Price in $</label>
@@ -250,7 +250,7 @@ export default {
   name: 'CatalogItem',
   data() {
     return {
-      originalModel: null,
+      originalItem: null,
       currentItem: null,
       originalAdditionalFields: null,
       additionalFields: null,
@@ -319,15 +319,17 @@ export default {
       this.state.isModified = false;
     },
     callReset() {
-      this.currentItem = _.cloneDeep(this.originalModel);
+      this.currentItem = _.cloneDeep(this.originalItem);
       this.additionalFields = _.cloneDeep(this.originalAdditionalFields);
       this.state.isModified = false;
     },
     callCancel() {
       this.state.isEdited = false;
       this.state.isModified = false;
-      this.originalModel = _.cloneDeep(this.item);
+      this.originalItem = _.cloneDeep(this.item);
+      this.currentItem = _.cloneDeep(this.item);
       this.originalAdditionalFields = _.cloneDeep(this.item.additionalFields);
+      this.additionalFields = _.cloneDeep(this.item.additionalFields);
     },
     callSave() {
       this.$refs.firstPartOfForm.requestSubmit();
@@ -358,7 +360,7 @@ export default {
         this.currentItem = _.cloneDeep(item);
         this.additionalFields = _.cloneDeep(item.additionalFields);
         if (!this.state.isEdited) {
-          this.originalModel = _.cloneDeep(item);
+          this.originalItem = _.cloneDeep(item);
           this.originalAdditionalFields = _.cloneDeep(item.additionalFields);
         }
       },
@@ -379,6 +381,7 @@ export default {
       handler(value) {
         if (
           (this.state.isEdited && !_.isEqual(value, this.item.additionalFields))
+          && (!_.isEqual(value, this.originalAdditionalFields))
           && (
             this.item.backState
               ? !_.isEqual(value, this.item.backState.additionalFields)
@@ -393,7 +396,7 @@ export default {
   },
   beforeMount() {
     this.selectItem(this.$router.currentRoute.params.id);
-    this.originalModel = _.cloneDeep(this.item);
+    this.originalItem = _.cloneDeep(this.item);
     this.currentItem = _.cloneDeep(this.item);
     this.additionalFields = _.cloneDeep(this.item.additionalFields);
     this.originalAdditionalFields = _.cloneDeep(this.item.additionalFields);
