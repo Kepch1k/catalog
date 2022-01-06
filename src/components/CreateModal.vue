@@ -8,31 +8,31 @@
       </div>
       <div class="button button_error" @click="closeDialog">Close</div>
     </div>
-    <form class="form" @submit.prevent="submitForm" ref="form">
+    <form ref="form" class="form" @submit.prevent="submitForm">
       <custom-input
-        label="Name"
         :value.sync="model.name"
+        label="Name"
       />
       <custom-input
-        label="Vendor Code"
         :value.sync="model.vendorCode"
+        label="Vendor Code"
       />
       <custom-input
-        label="Manufacturer"
         :value.sync="model.manufacturer"
+        label="Manufacturer"
       />
       <custom-input
-        label="Count"
+        :min="0"
         :value.sync="model.count"
+        label="Count"
         type="number"
-        :min="0"
       />
       <custom-input
-        label="Price in $"
-        idPart="Price"
-        :value.sync="model.price"
-        type="number"
         :min="0"
+        :value.sync="model.price"
+        idPart="Price"
+        label="Price in $"
+        type="number"
       />
     </form>
     <div>
@@ -73,7 +73,8 @@ export default {
         count: this.model.count,
         price: this.model.price,
         manufacturer: this.model.manufacturer,
-        additionalFields: [],
+        lastAdditionalIndex: 0,
+        additionalFields: {},
       });
 
       this.closeDialog();
@@ -85,8 +86,8 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-.wrapper{
+<style lang="scss" scoped>
+.wrapper {
   width: inherit;
   height: inherit;
   border: 1px solid transparent;
@@ -94,12 +95,12 @@ export default {
   box-sizing: border-box;
   background: rgba($light-gray, 0.1);
 
-  & > div{
+  & > div {
     width: 100%;
   }
 }
 
-.form{
+.form {
   width: 100%;
   box-sizing: border-box;
   display: grid;

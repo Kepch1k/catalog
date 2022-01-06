@@ -2,8 +2,8 @@
   <div class="wrapper">
     <div class="item">
       <router-link
-        class="svg-wrapper"
         :to="`/product/${itemData['id']}`"
+        class="svg-wrapper"
       >
         <div class="item__header font-larger">
           {{ itemData['name'] }} #{{ itemData['vendorCode'] }}
@@ -27,8 +27,8 @@
         </div>
         <div class="content__right-side flex">
           <router-link
-            class="svg-wrapper"
             :to="`/product/${itemData['id']}`"
+            class="svg-wrapper"
           >
             <div class="button button_primary m-r-half">
               Show
@@ -81,40 +81,39 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-  .wrapper{
-    border: 1px solid $light-gray;
-    border-radius: 5px;
-    margin: 5px;
+<style lang="scss" scoped>
+.wrapper {
+  border: 1px solid $light-gray;
+  border-radius: 5px;
+  margin: 5px;
 
-    &:hover{
-      //transform: scale(1.02);
-      background: rgba($light-gray, 0.1);
-    }
+  &:hover {
+    background: rgba($light-gray, 0.1);
   }
+}
 
-  .item__header{
-    padding: .5em 1em;
-  }
+.item__header {
+  padding: .5em 1em;
+}
 
-  .item__content{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: .5em;
-  }
+.item__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: .5em;
+}
 
-  .content__field{
-    padding: 5px;
-    margin: 0 5px;
-  }
+.content__field {
+  padding: 5px;
+  margin: 0 5px;
+}
 
-  .content__field_color_green{
-    color: $green;
-  }
+.content__field_color_green {
+  color: $green;
+}
 
-  .content__field_color_red{
-    color: $red;
-  }
+.content__field_color_red {
+  color: $red;
+}
 </style>

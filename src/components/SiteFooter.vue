@@ -14,18 +14,18 @@
         <br>
         <div class="m-b-half">
           <v-icon
-            scale="1"
             name="envelope"
+            scale="1"
           />&nbsp;&nbsp;<a
-            class="blue hover-light-blue"
-            href="mailto:test@google.com"
-          >test@google.com
-          </a>
+          class="blue hover-light-blue"
+          href="mailto:test@google.com"
+        >test@google.com
+        </a>
         </div>
         <div>
           <v-icon
-            scale="1"
             name="phone-alt"
+            scale="1"
           />&nbsp;&nbsp;<a class="blue hover-light-blue" href="tel:+380951111111">+380951111111</a>
         </div>
       </div>
@@ -46,14 +46,14 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-  footer{
-    background: $gray;
-    color: $white;
-  }
+<style lang="scss" scoped>
+footer {
+  background: $gray;
+  color: $white;
+}
 
-  svg{
-    fill: $white;
-    vertical-align: middle;
-  }
+svg {
+  fill: $white;
+  vertical-align: middle;
+}
 </style>

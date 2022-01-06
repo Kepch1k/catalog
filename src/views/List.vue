@@ -5,14 +5,14 @@
     <div class="container p-t0">
       <paginate
         v-model="pagination.page"
+        :click-handler="navigate"
+        :container-class="'pagination'"
+        :margin-pages="pagination.margin"
+        :next-text="'Next'"
+        :page-class="'page-item'"
         :page-count="pagination.count"
         :page-range="pagination.range"
-        :margin-pages="pagination.margin"
-        :click-handler="navigate"
         :prev-text="'Prev'"
-        :next-text="'Next'"
-        :container-class="'pagination'"
-        :page-class="'page-item'"
       />
     </div>
   </div>
@@ -142,29 +142,29 @@ export default {
   margin: 20px 0;
   border-radius: 4px;
 
-  & > li{
+  & > li {
     display: inline;
 
-    &.active > a, &.active > a:hover{
+    &.active > a, &.active > a:hover {
       background: rgba($light-blue, 0.2);
     }
 
-    &.disabled > a{
+    &.disabled > a {
       pointer-events: none;
       color: $light-gray;
     }
 
-    &:last-child > a{
+    &:last-child > a {
       border-top-right-radius: 4px;
       border-bottom-right-radius: 4px;
     }
 
-    &:first-child > a{
+    &:first-child > a {
       border-top-left-radius: 4px;
       border-bottom-left-radius: 4px;
     }
 
-    & > a{
+    & > a {
       position: relative;
       float: left;
       padding: 0.4em 0.8em;
@@ -191,7 +191,7 @@ export default {
         padding: 0.6em 1.2em;
       }
 
-      &:hover{
+      &:hover {
         background: rgba($light-gray, 0.1);
       }
     }

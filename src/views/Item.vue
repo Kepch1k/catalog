@@ -1,6 +1,6 @@
 <template>
   <div>
-  <div v-if="currentItem">
+    <div v-if="currentItem">
       <manage-panel
         :state="state"
         @custom-cancel="callCancel"
@@ -12,37 +12,37 @@
       <div class="container">
         <div class="item flex flex-column justify-start align-start">
           <form
-            class="item__title font-xx-large flex"
             ref="firstPartOfForm"
+            class="item__title font-xx-large flex"
             @submit.prevent="submitFirstForm"
           >
             <custom-switcher :status="!state.isEdited">
               <div slot="option1">
-                {{ originalItem.name }}
+                {{ originalItem.name }}&nbsp;<span slot="option1" class="black">
+                #{{ originalItem.vendorCode }}
+              </span>
               </div>
-              <div class="form__group field" slot="option2">
+              <div slot="option2" class="form__group field">
                 <label :for="`item-name`" class="form__label">Name</label>
                 <input
-                  v-model="currentItem.name"
-                  class="form__field"
-                  :type="'text'"
                   :id="`item-name`"
+                  v-model="currentItem.name"
                   :required="true"
+                  :type="'text'"
+                  class="form__field"
                 >
               </div>
             </custom-switcher>
             <custom-switcher :status="!state.isEdited">
-              <div slot="option1" class="black float-right m-l-half">
-                #{{ originalItem.vendorCode }}
-              </div>
-              <div class="form__group field" slot="option2">
+              <span slot="option1"></span>
+              <div slot="option2" class="form__group field">
                 <label :for="`item-name-vendor-code`" class="form__label">Vendor Code</label>
                 <input
-                  v-model="currentItem.vendorCode"
-                  class="form__field"
-                  :type="'text'"
                   :id="`item-name-vendor-code`"
+                  v-model="currentItem.vendorCode"
                   :required="true"
+                  :type="'text'"
+                  class="form__field"
                 >
               </div>
             </custom-switcher>
@@ -51,8 +51,8 @@
             class="item__content flex justify-between align-start flex-wrap"
           >
             <form
-              class="content__main-props flex flex-column m-t1"
               ref="secondPartOfForm"
+              class="content__main-props flex flex-column m-t1"
               @submit.prevent="submitSecondForm"
             >
               <div class="main-props__item flex justify-between align-center m-b-half">
@@ -63,14 +63,14 @@
                   <div slot="option1">
                     {{ originalItem.manufacturer }}
                   </div>
-                  <div class="form__group field" slot="option2">
+                  <div slot="option2" class="form__group field">
                     <label :for="`item-manufacturer`" class="form__label">Manufacturer</label>
                     <input
-                      v-model="currentItem.manufacturer"
-                      class="form__field"
-                      :type="'text'"
                       :id="`item-manufacturer`"
+                      v-model="currentItem.manufacturer"
                       :required="true"
+                      :type="'text'"
+                      class="form__field"
                     >
                   </div>
                 </custom-switcher>
@@ -83,15 +83,15 @@
                   <div slot="option1">
                     {{ originalItem.count }}
                   </div>
-                  <div class="form__group field" slot="option2">
+                  <div slot="option2" class="form__group field">
                     <label :for="`item-count`" class="form__label">Count</label>
                     <input
-                      v-model="currentItem.count"
-                      class="form__field"
-                      :type="'number'"
                       :id="`item-count`"
+                      v-model="currentItem.count"
                       :min="0"
                       :required="true"
+                      :type="'number'"
+                      class="form__field"
                     >
                   </div>
                 </custom-switcher>
@@ -104,15 +104,15 @@
                   <div slot="option1">
                     {{ originalItem.price }}$
                   </div>
-                  <div class="form__group field" slot="option2">
+                  <div slot="option2" class="form__group field">
                     <label :for="`item-price`" class="form__label">Price in $</label>
                     <input
-                      v-model="currentItem.price"
-                      class="form__field"
-                      :type="'number'"
                       :id="`item-price`"
+                      v-model="currentItem.price"
                       :min="0"
                       :required="true"
+                      :type="'number'"
+                      class="form__field"
                     >
                   </div>
                 </custom-switcher>
@@ -136,84 +136,84 @@
                 </div>
               </div>
             </div>
-            <form
+            <div
               v-else-if="state.isEdited"
               class="content__additional-props flex flex-column m-t1"
-              ref="thirdPartOfForm"
-              @submit.prevent="submitThirdForm"
             >
               <div class="font-larger m-b-half">Additional Fields</div>
-              <div
-                v-for="(field, id) in additionalFields"
-                :key="id"
-                class="flex justify-between align-center box-border m-b-half"
-              >
-                <div class="item__label m-r1">
-                  <div class="form__group field" slot="option2">
-                    <label
-                      :for="`additional-field-${id + field.name}`"
-                      class="form__label"
-                    >
-                      Name
-                    </label>
-                    <input
-                      v-model="field.name"
-                      class="form__field"
-                      :type="'text'"
-                      :id="`additional-field-${id + field.name}`"
-                      :required="true"
-                    >
+              <form ref="thirdPartOfForm" @submit.prevent="submitThirdForm">
+                <div
+                  v-for="(field, id) in additionalFields"
+                  :key="id"
+                  class="flex justify-between align-center box-border m-b-half"
+                >
+                  <div class="item__label m-r1">
+                    <div slot="option2" class="form__group field">
+                      <label
+                        :for="`additional-field-${id + field.name}`"
+                        class="form__label"
+                      >
+                        Name
+                      </label>
+                      <input
+                        :id="`additional-field-${id + field.name}`"
+                        v-model="field.name"
+                        :required="true"
+                        :type="'text'"
+                        class="form__field"
+                      >
+                    </div>
+                  </div>
+                  <div>
+                    <div slot="option2" class="form__group field">
+                      <label
+                        :for="`additional-field-${id + field.name}`"
+                        class="form__label"
+                      >
+                        Value
+                      </label>
+                      <input
+                        :id="`additional-field-${id + field.name}`"
+                        v-model="field.value"
+                        :required="true"
+                        :type="'text'"
+                        class="form__field"
+                      >
+                    </div>
+                  </div>
+                  <div class="button button_error"
+                       @click="removeNewAdditionalField(field, id)">
+                    <v-icon class="fill-red" name="trash"/>
                   </div>
                 </div>
-                <div>
-                  <div class="form__group field" slot="option2">
-                    <label
-                      :for="`additional-field-${id + field.name}`"
-                      class="form__label"
-                    >
-                      Value
-                    </label>
-                    <input
-                      v-model="field.value"
-                      class="form__field"
-                      :type="'text'"
-                      :id="`additional-field-${id + field.name}`"
-                      :required="true"
-                    >
-                  </div>
-                </div>
-                <div class="button button_error"
-                     @click="removeNewAdditionalField(field, id)">
-                  <v-icon name="trash" class="fill-red"/>
-                </div>
-              </div>
+              </form>
               <hr v-if="state.isEdited && Object.keys(additionalFields).length > 0"
                   class="m-b1 m-t1">
               <div v-if="state.isEdited">
-                <div class="m-l-half">Insert new field</div>
+                <div class="m-l-half font-larger">Insert new field</div>
                 <form
-                  class="flex align-center"
                   ref="newAdditionalField"
+                  class="flex align-center"
                   @submit.prevent="submitFormAdditionalField"
                 >
-                  <div class="form__group field" slot="option2">
+                  <div slot="option2" class="form__group field">
                     <label :for="`additional-field-name`" class="form__label">Name</label>
                     <input
-                      v-model="additionalField.name"
-                      class="form__field"
-                      :type="'text'"
                       :id="`additional-field-name`"
+                      v-model="additionalField.name"
                       :required="true"
+                      :type="'text'"
+                      class="form__field"
                     >
                   </div>
-                  <div class="form__group field" slot="option2">
+                  <div slot="option2" class="form__group field">
                     <label :for="`additional-field-value`" class="form__label">Value</label>
                     <input
-                      v-model="additionalField.value"
-                      class="form__field"
-                      :type="'text'"
                       :id="`additional-field-value`"
+                      v-model="additionalField.value"
                       :required="true"
+                      :type="'text'"
+                      class="form__field"
                     >
                   </div>
                   <div
@@ -224,7 +224,7 @@
                   </div>
                 </form>
               </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>
@@ -284,7 +284,9 @@ export default {
         message: `That you want delete
         "${field.name.slice(0, 40)}${field.name.length > 40 ? '...' : ''}"?`,
         closeDialog: this.closeDialog,
-        success: () => { this.deleteItem(id); },
+        success: () => {
+          this.deleteItem(id);
+        },
       }, {
         width: '200px',
         height: '200px',
@@ -383,7 +385,7 @@ export default {
           (this.state.isEdited && !_.isEqual(value, this.item.additionalFields))
           && (!_.isEqual(value, this.originalAdditionalFields))
           && (
-            this.item.backState
+            this.item.backState && !_.isEmpty(this.item.backState.additionalFields)
               ? !_.isEqual(value, this.item.backState.additionalFields)
               : true
           )
@@ -406,134 +408,141 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-  .item{
-    -webkit-box-shadow: 0 0 5px 1px rgba(34, 60, 80, 0.2) inset;
-    -moz-box-shadow: 0 0 5px 1px rgba(34, 60, 80, 0.2) inset;
-    box-shadow: 0 0 5px 1px rgba(34, 60, 80, 0.2) inset;
-    padding: 1em;
-    text-align: start;
+<style lang="scss" scoped>
 
-    .item__title{
-      color: $light-blue;
-      margin-bottom: 1em;
-      width: 100%;
-    }
+.item {
+  -webkit-box-shadow: 0 0 5px 1px rgba(34, 60, 80, 0.2) inset;
+  -moz-box-shadow: 0 0 5px 1px rgba(34, 60, 80, 0.2) inset;
+  box-shadow: 0 0 5px 1px rgba(34, 60, 80, 0.2) inset;
+  padding: 1em;
+  text-align: start;
 
-    .item__content{
-      width: 100%;
-      box-sizing: border-box;
-      flex-direction: column;
-      @include for-small-tablet-only{
-        flex-direction: row;
-      }
-
-      & > div{
-        //margin: 0 1em;
-        max-width: 100%;
-        width: inherit;
-        font-size: larger;
-
-        @include for-small-tablet-only{
-          max-width: 70%;
-        }
-
-        @include for-tablet-portrait-up{
-          max-width: 40%;
-        }
-
-        @include for-tablet-landscape-up{
-          max-width: 33%;
-        }
-      }
-
-      & > div.content__main-props{
-        padding: 0 1em;
-      }
-
-      & > div.content__additional-props{
-        width: auto;
-        max-width: 100%;
-      }
-    }
-  }
-
-  .content__additional-props{
-    -webkit-box-shadow: -3px 5px 5px 4px rgba($blue, 0.2);
-    -moz-box-shadow: -3px 5px 5px 4px rgba($blue, 0.2);
-    box-shadow: -3px 5px 5px 4px rgba($blue, 0.2);
-
-    padding: 1em;
-  }
-
-  .item__label{
-    color: rgba($gray, 0.9);
-  }
-
-  /* inputs */
-  .form__group {
-    position: relative;
-    padding: 15px 0 0;
-    margin-top: 10px;
-    width: auto;
-    max-width: 80%;
-  }
-
-  .form__field {
-    margin-top: 0.5em;
-    font-family: inherit;
-    min-width: 50px;
+  .item__title {
+    color: $light-blue;
+    margin-bottom: 1em;
     width: 100%;
-    max-width: 300px;
-    border: 0;
-    border-bottom: 2px solid $gray;
-    outline: 0;
-    font-size: 1rem;
-    padding: 7px 0;
-    background: transparent;
-    transition: border-color 0.2s;
-
-    &::placeholder {
-      color: transparent;
-    }
-
-    &:placeholder-shown ~ .form__label {
-      font-size: 1.3rem;
-      cursor: text;
-      top: 20px;
-    }
   }
 
-  .form__label {
+  .item__content {
+    width: 100%;
+    box-sizing: border-box;
+    flex-direction: column;
+
+    @include for-small-tablet-only {
+      flex-direction: row;
+    }
+
+    & > form{
+      width: 100vw;
+      box-sizing: border-box;
+      max-width: 100%;
+
+      @include for-small-tablet-only {
+        max-width: 70%;
+      }
+
+      @include for-tablet-portrait-up {
+        max-width: 40%;
+      }
+    }
+
+    & > form > div {
+      max-width: 100%;
+      width: inherit;
+      font-size: larger;
+    }
+
+    & > form.content__main-props {
+      padding: 0 1em;
+    }
+
+    & div.content__additional-props {
+      width: auto;
+      max-width: 100%;
+    }
+  }
+}
+
+.content__additional-props {
+  -webkit-box-shadow: -3px 5px 5px 4px rgba($blue, 0.2);
+  -moz-box-shadow: -3px 5px 5px 4px rgba($blue, 0.2);
+  box-shadow: -3px 5px 5px 4px rgba($blue, 0.2);
+
+  padding: 1em;
+}
+
+.item__label {
+  color: rgba($gray, 0.9);
+}
+
+/* inputs */
+.form__group {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: auto;
+  max-width: 80%;
+}
+
+.form__field {
+  margin-top: 0.5em;
+  font-family: inherit;
+  min-width: 50px;
+  width: 100%;
+  max-width: 300px;
+  border: 0;
+  border-bottom: 2px solid $gray;
+  outline: 0;
+  font-size: 1rem;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:placeholder-shown ~ .form__label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 20px;
+  }
+}
+
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: $gray;
+  font-weight: 700;
+}
+
+.form__field:focus {
+  ~ .form__label {
     position: absolute;
     top: 0;
     display: block;
     transition: 0.2s;
     font-size: 1rem;
-    color: $gray;
-    font-weight: 700;
+    color: $blue;
   }
 
-  .form__field:focus {
-    ~ .form__label {
-      position: absolute;
-      top: 0;
-      display: block;
-      transition: 0.2s;
-      font-size: 1rem;
-      color: $blue;
-    }
-    padding-bottom: 6px;
-    border-width: 3px;
-    border-image: linear-gradient(to right, $blue, $light-blue);
-    border-image-slice: 1;
-  }
-  /* reset input */
-  .form__field{
-    &:required,&:invalid { box-shadow:none; }
-  }
+  padding-bottom: 6px;
+  border-width: 3px;
+  border-image: linear-gradient(to right, $blue, $light-blue);
+  border-image-slice: 1;
+}
 
-  .field{
-    padding: 0.5em;
+/* reset input */
+.form__field {
+  &:required, &:invalid {
+    box-shadow: none;
   }
+}
+
+.field {
+  padding: 0.5em;
+}
 </style>

@@ -2,12 +2,12 @@
   <div class="form__group field">
     <label :for="`create-item-${parsedLabel}`" class="form__label">{{ label }}</label>
     <input
-      v-model="enteredValue"
-      class="form__field"
-      :type="type"
       :id="`create-item-${parsedLabel}`"
-      :required="required"
+      v-model="enteredValue"
       :min="min"
+      :required="required"
+      :type="type"
+      class="form__field"
       @input="$emit('update:value', enteredValue);"
     >
   </div>
@@ -49,7 +49,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .form__group {
   position: relative;
   padding: 15px 0 0;
@@ -102,17 +102,21 @@ export default {
     font-size: 1rem;
     color: $blue;
   }
+
   padding-bottom: 6px;
   border-width: 3px;
   border-image: linear-gradient(to right, $blue, $light-blue);
   border-image-slice: 1;
 }
+
 /* reset input */
-.form__field{
-  &:required,&:invalid { box-shadow:none; }
+.form__field {
+  &:required, &:invalid {
+    box-shadow: none;
+  }
 }
 
-.field{
+.field {
   padding: 0.5em;
 }
 </style>

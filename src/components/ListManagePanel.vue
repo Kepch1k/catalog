@@ -1,28 +1,28 @@
 <template>
-    <manage-panel>
-      <div
-        class="flex flex-column justify-center align-center m-r-half m-l-half m-b-half"
-      >
-        <div>View</div>
-        <toggle
-          :items="[
+  <manage-panel>
+    <div
+      class="flex flex-column justify-center align-center m-r-half m-l-half m-b-half"
+    >
+      <div>View</div>
+      <toggle
+        :items="[
           {'text': 'Tile', 'value': 'tile'},
           {'text': 'List', 'value': 'list'},
         ]"
-          :selected="selected"
-          @change="updateViewType"
-        />
-      </div>
-      <div
-        class="button button_success m-r-half m-l-half m-b-half"
-        :class="{
+        :selected="selected"
+        @change="updateViewType"
+      />
+    </div>
+    <div
+      :class="{
           'm-t1' : this.breakpoint === 'xs'
         }"
-        @click="callModal()"
-      >
-        Create Item
-      </div>
-    </manage-panel>
+      class="button button_success m-r-half m-l-half m-b-half"
+      @click="callModal()"
+    >
+      Create Item
+    </div>
+  </manage-panel>
 </template>
 
 <script>
@@ -32,8 +32,7 @@ import CreateModal from '@/components/CreateModal.vue';
 export default {
   name: 'ListManagePanel',
   data() {
-    return {
-    };
+    return {};
   },
   computed: {
     ...mapGetters({

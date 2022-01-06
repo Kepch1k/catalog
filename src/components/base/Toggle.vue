@@ -1,13 +1,13 @@
 <template>
   <div class="radio-wrapper flex">
-    <div class="form_radio_btn" v-for="(item, index) in items" :key="item['value']">
+    <div v-for="(item, index) in items" :key="item['value']" class="form_radio_btn">
       <input
-        v-model="toggleSelected"
-        @change="$emit('change', toggleSelected);"
         :id="`radio-${index}`"
-        type="radio"
-        name="radio"
+        v-model="toggleSelected"
         :value="item['value']"
+        name="radio"
+        type="radio"
+        @change="$emit('change', toggleSelected);"
       >
       <label :for="`radio-${index}`">{{ item['text'] }}</label>
     </div>
@@ -29,14 +29,14 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-.radio-wrapper{
-  & .form_radio_btn:first-child > label{
+<style lang="scss" scoped>
+.radio-wrapper {
+  & .form_radio_btn:first-child > label {
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
   }
 
-  & .form_radio_btn:last-child > label{
+  & .form_radio_btn:last-child > label {
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
     border-right-width: 1px;
@@ -46,9 +46,11 @@ export default {
 .form_radio_btn {
   display: inline-block;
 }
+
 .form_radio_btn input[type=radio] {
   display: none;
 }
+
 .form_radio_btn label {
   display: inline-block;
   cursor: pointer;
@@ -56,7 +58,6 @@ export default {
   line-height: 34px;
   border: 1px solid $light-gray;
   border-right-width: 0;
-  //border-radius: 6px;
   user-select: none;
 }
 

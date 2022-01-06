@@ -22,14 +22,13 @@ export default {
   },
   name: 'DialogModal',
   data() {
-    return {
-    };
+    return {};
   },
 };
 </script>
 
-<style scoped lang="scss">
-.wrapper{
+<style lang="scss" scoped>
+.wrapper {
   padding: 0;
   height: inherit;
   border: 1px solid transparent;
