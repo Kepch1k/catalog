@@ -4,11 +4,25 @@ export default {
     {
       id: 1,
       vendorCode: '1',
-      name: 'name awd awd awda wdaw dawddawd  fawf awf awfname awd awd awda wdaw dawddawd  fawf awf awfname awd awd awda wdaw dawddawd  fawf awf awf',
+      name: 'name awd awd awda wdaw dawddawd',
       count: 1,
       price: 100,
       manufacturer: 'USA',
-      additionalFields: [],
+      lastAdditionalIndex: 3,
+      additionalFields: {
+        1: {
+          name: 'name1110000000000',
+          value: 'value11111111',
+        },
+        2: {
+          name: 'name1110000000000',
+          value: 'value11111111',
+        },
+        3: {
+          name: 'name1110000000000',
+          value: 'value11111111',
+        },
+      },
     },
     {
       id: 2,
@@ -17,7 +31,8 @@ export default {
       count: 2,
       price: 100,
       manufacturer: 'USA',
-      additionalFields: [],
+      lastAdditionalIndex: 0,
+      additionalFields: {},
     },
     {
       id: 3,
@@ -26,7 +41,8 @@ export default {
       count: 3,
       price: 100,
       manufacturer: 'USA',
-      additionalFields: [],
+      lastAdditionalIndex: 0,
+      additionalFields: {},
     },
     {
       id: 4,
@@ -35,7 +51,8 @@ export default {
       count: 0,
       price: 100,
       manufacturer: 'USA',
-      additionalFields: [],
+      lastAdditionalIndex: 0,
+      additionalFields: {},
     },
     {
       id: 5,
@@ -44,7 +61,8 @@ export default {
       count: 1,
       price: 100,
       manufacturer: 'USA',
-      additionalFields: [],
+      lastAdditionalIndex: 0,
+      additionalFields: {},
     },
     {
       id: 6,
@@ -53,7 +71,8 @@ export default {
       count: 1,
       price: 100,
       manufacturer: 'USA',
-      additionalFields: [],
+      lastAdditionalIndex: 0,
+      additionalFields: {},
     },
     {
       id: 7,
@@ -62,7 +81,8 @@ export default {
       count: 1,
       price: 100,
       manufacturer: 'USA',
-      additionalFields: [],
+      lastAdditionalIndex: 0,
+      additionalFields: {},
     },
     {
       id: 8,
@@ -71,7 +91,8 @@ export default {
       count: 2,
       price: 100,
       manufacturer: 'USA',
-      additionalFields: [],
+      lastAdditionalIndex: 0,
+      additionalFields: {},
     },
     {
       id: 9,
@@ -80,7 +101,8 @@ export default {
       count: 3,
       price: 100,
       manufacturer: 'USA',
-      additionalFields: [],
+      lastAdditionalIndex: 0,
+      additionalFields: {},
     },
     {
       id: 10,
@@ -89,7 +111,8 @@ export default {
       count: 0,
       price: 100,
       manufacturer: 'USA',
-      additionalFields: [],
+      lastAdditionalIndex: 0,
+      additionalFields: {},
     },
     {
       id: 11,
@@ -98,7 +121,8 @@ export default {
       count: 1,
       price: 100,
       manufacturer: 'USA',
-      additionalFields: [],
+      lastAdditionalIndex: 0,
+      additionalFields: {},
     },
     {
       id: 12,
@@ -107,7 +131,8 @@ export default {
       count: 1,
       price: 100,
       manufacturer: 'USA',
-      additionalFields: [],
+      lastAdditionalIndex: 0,
+      additionalFields: {},
     },
     {
       id: 13,
@@ -116,7 +141,8 @@ export default {
       count: 1,
       price: 100,
       manufacturer: 'USA',
-      additionalFields: [],
+      lastAdditionalIndex: 0,
+      additionalFields: {},
     },
     {
       id: 14,
@@ -125,7 +151,8 @@ export default {
       count: 2,
       price: 100,
       manufacturer: 'USA',
-      additionalFields: [],
+      lastAdditionalIndex: 0,
+      additionalFields: {},
     },
     {
       id: 15,
@@ -134,7 +161,8 @@ export default {
       count: 3,
       price: 100,
       manufacturer: 'USA',
-      additionalFields: [],
+      lastAdditionalIndex: 0,
+      additionalFields: {},
     },
     {
       id: 16,
@@ -143,7 +171,8 @@ export default {
       count: 0,
       price: 100,
       manufacturer: 'USA',
-      additionalFields: [],
+      lastAdditionalIndex: 0,
+      additionalFields: {},
     },
     {
       id: 17,
@@ -152,7 +181,8 @@ export default {
       count: 1,
       price: 100,
       manufacturer: 'USA',
-      additionalFields: [],
+      lastAdditionalIndex: 0,
+      additionalFields: {},
     },
     {
       id: 18,
@@ -161,7 +191,8 @@ export default {
       count: 1,
       price: 100,
       manufacturer: 'USA',
-      additionalFields: [],
+      lastAdditionalIndex: 0,
+      additionalFields: {},
     },
   ],
   selectedItem: null,

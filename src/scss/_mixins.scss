@@ -11,12 +11,15 @@
 @mixin for-tablet-portrait-up {
   @media (min-width: $mediaSmallTabletWidth) { @content; }
 }
+
 @mixin for-tablet-landscape-up {
   @media (min-width: $mediaTabletWidth) { @content; }
 }
+
 @mixin for-desktop-up {
   @media (min-width: $mediaDesktopWidth) { @content; }
 }
+
 @mixin for-big-desktop-up {
   @media (min-width: $mediaBigDesktopWidth) { @content; }
 }

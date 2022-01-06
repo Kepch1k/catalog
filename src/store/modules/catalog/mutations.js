@@ -16,4 +16,22 @@ export default {
   pickChunk: async (state, { page, chunkSize }) => {
     state.chunk = state.items.slice((page - 1) * chunkSize, page * chunkSize);
   },
+  updateItem: async (state, item) => {
+    state.items = state.items.map((i) => {
+      if (+i.id === +item.id) {
+        return {
+          ...i,
+          ...item,
+          backState: i,
+        };
+      }
+
+      return i;
+    });
+
+    /* update selectedItem if touched */
+    if (+state.selectedItem.id === +item.id) {
+      state.selectedItem = state.items.filter((i) => +i.id === +item.id).pop();
+    }
+  },
 };

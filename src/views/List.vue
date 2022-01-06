@@ -21,7 +21,7 @@
 <script>
 import { mapGetters, mapMutations } from 'vuex';
 import CatalogList from '../components/CatalogList.vue';
-import ManagePanel from '../components/ManagePanel.vue';
+import ManagePanel from '../components/ListManagePanel.vue';
 
 export default {
   name: 'List',
@@ -43,6 +43,10 @@ export default {
     }),
     navigate(page) {
       this.pickChunk({ page, chunkSize: this.pagination.pageSize });
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
     },
     updatePaginationConfig(breakpoint) {
       const { items: { length }, viewType } = this;

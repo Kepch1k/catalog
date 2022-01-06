@@ -1,12 +1,17 @@
 <template>
   <div class="container">
+    <div v-if="items.length === 0">Empty</div>
     <div
       :class="{
         'list' : viewType === 'list',
         'tile' : viewType === 'tile',
       }"
     >
-      <catalog-item v-for="item in items" :itemData="item" :key="item['id']"/>
+      <catalog-item
+        v-for="item in items"
+        :itemData="item"
+        :key="item['id']"
+      />
     </div>
   </div>
 </template>

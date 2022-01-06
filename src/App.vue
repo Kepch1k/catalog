@@ -2,7 +2,7 @@
   <div id="app">
     <site-header/>
     <router-view/>
-    <modals-container/>
+    <modals-container style="position: absolute"/>
     <site-footer/>
   </div>
 </template>

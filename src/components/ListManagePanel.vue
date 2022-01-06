@@ -1,10 +1,5 @@
 <template>
-  <div class="container p-b0">
-    <div class="wrapper flex  justify-between p-l0 p-r0" :class="{
-      'flex-column' : this.breakpoint === 'xs',
-      'align-center' : this.breakpoint === 'xs',
-      'align-end' : this.breakpoint !== 'xs',
-    }">
+    <manage-panel>
       <div
         class="flex flex-column justify-center align-center m-r-half m-l-half m-b-half"
       >
@@ -19,7 +14,7 @@
         />
       </div>
       <div
-        class="button button_success m-r-half m-l-half m-b-half m-"
+        class="button button_success m-r-half m-l-half m-b-half"
         :class="{
           'm-t1' : this.breakpoint === 'xs'
         }"
@@ -27,17 +22,15 @@
       >
         Create Item
       </div>
-    </div>
-  </div>
+    </manage-panel>
 </template>
 
 <script>
 import { mapGetters, mapMutations } from 'vuex';
-import SET_VIEW_TYPE from '../store/types';
 import CreateModal from '@/components/CreateModal.vue';
 
 export default {
-  name: 'ManagePanel',
+  name: 'ListManagePanel',
   data() {
     return {
     };
@@ -53,7 +46,7 @@ export default {
   },
   methods: {
     ...mapMutations({
-      updateViewType: SET_VIEW_TYPE,
+      updateViewType: 'setViewType',
     }),
     callModal() {
       this.$modal.show(CreateModal, {
@@ -78,6 +71,3 @@ export default {
   },
 };
 </script>
-
-<style scoped lang="scss">
-</style>
