@@ -88,7 +88,7 @@ export default {
   margin: 5px;
 
   &:hover {
-    background: rgba($light-gray, 0.1);
+    background: rgba($light-gray, 0.03);
   }
 }
 
